@@ -31,10 +31,9 @@ export default {
       margin:0 8px;
       background: #fff;
       display: inline-block;
-      $h: 28px;
-      height: $h;
-      line-height: $h;
-      border-radius: $h/2;
+      height: 28px;
+      line-height:28px;
+      border-radius: 14px;
       padding: 0 8px;
     }
   }
