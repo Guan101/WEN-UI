@@ -1,12 +1,12 @@
 <template>
-  <div class="topnav">
-    <div class="logo">LOGO</div>
-    <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
-    </ul>
-  <span class="toggleAside" @click="toggleMenu">kk</span>
-  </div>
+ <div class="topnav">
+  <div class="logo">LOGO</div>
+  <ul class="menu">
+    <li>菜单1</li>
+    <li>菜单2</li>
+  </ul>
+  <span class="toggleAside" @click="toggleMenu"></span>
+</div>
 </template>
 <script lang="ts">
 import { inject, Ref } from "vue"
@@ -23,7 +23,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .topnav {
-  background: pink;
   display: flex;
   padding: 16px;
   position: fixed;
