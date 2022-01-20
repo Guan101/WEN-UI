@@ -1,7 +1,7 @@
 <template>
 <div class="topnav">
   <router-link to="/" class="logo">
-    <svg class="icon">
+    <svg class="icon" >
       <use xlink:href="#icon-Wen"></use>
     </svg>
   </router-link>
@@ -10,8 +10,11 @@
       <router-link to="/doc">文档</router-link>
     </li>
   </ul>
-  <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
-    <use xlink:href="#icon-menu"></use>
+  <svg v-if="menuVisible" class="toggleAside eBox" @click="toggleMenu">
+    <use xlink:href="#icon-eBox"></use>
+  </svg>
+  <svg v-else class="toggleAside" @click="toggleMenu">
+    <use xlink:href="#icon-box"></use>
   </svg>
 </div>
 </template>
@@ -34,7 +37,7 @@ export default {
       menuVisible.value = !menuVisible.value;
     };
     return {
-      toggleMenu
+      toggleMenu,menuVisible
     };
   },
 };
@@ -48,13 +51,14 @@ $color: #007974;
   display: flex;
   padding: 16px;
   position: fixed;
+  box-shadow: 0 5px 5px rgba(#333, 0.1);
+  background-color: #fff;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 20;
+  z-index:99;
   justify-content: center;
   align-items: center;
-
   >.logo {
     max-width: 6em;
     margin-right: auto;
@@ -83,10 +87,13 @@ $color: #007974;
     top: 50%;
     transform: translateY(-50%);
     display: none;
-    background: fade-out(black, 0.9);
   }
 
   @media (max-width: 500px) {
+   &.topnav{
+     display: fixed;
+     background-color: white;
+   }
     >.menu {
       display: none;
     }
@@ -98,6 +105,10 @@ $color: #007974;
     >.toggleAside {
       display: inline-block;
     }
+  }
+  .eBox{
+    width: 37px;
+    height: 37px;
   }
 }
 </style>

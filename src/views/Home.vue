@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="topnavAndBanner">
-    <Topnav />
+    <Topnav v-if="isshow"/>
     <div class="banner">
       <h1>Wen-UI</h1>
       <h2>一个面向学习者的 UI 框架</h2>
@@ -41,10 +41,16 @@
 
 <script lang="ts">
 import Topnav from "../components/Topnav.vue";
+import { ref,watchEffect } from "vue";
 export default {
   components: {
     Topnav
   },
+  setup(){
+    const isshow = ref(true)
+    document.documentElement.clientWidth<=500 ? isshow.value = false : isshow.value = true
+    return{isshow}
+  }
 };
 </script>
 
@@ -113,6 +119,7 @@ $color: #007974;
       }
     }
   }
+  
 }
 
 .banner {

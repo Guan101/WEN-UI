@@ -1,8 +1,8 @@
 <template>
 <div class="layout">
-  <Topnav toggleMenuButtonVisible class="nav" />
+  <Topnav v-model:toggleMenuButtonVisible class="nav" />
   <div class="content">
-    <aside v-if="menuVisible">
+    <aside :class="menuVisible ? 'asideOpen': 'asideClosed'">
       <h2>文档</h2>
       <ol>
         <li>
@@ -59,7 +59,9 @@ export default {
 
 <style lang="scss" scoped>
 $aside-index : 10;
-
+$lightbgc: #e6f7ff;
+$deepbgc: #1890ff;
+$text: #262626;
 .layout {
   display: flex;
   flex-direction: column;
@@ -89,37 +91,58 @@ $aside-index : 10;
 
   >main {
     flex-grow: 1;
-    padding: 16px;
+    padding: 32px 64px;
     background: white;
   }
 }
-
+.asideOpen{
+  height: 110vh;
+  overflow: hidden;
+}
+.asideClosed{
+  height: 0vh;
+  overflow: hidden;
+}
 aside {
-  background: lightblue;
-  width: 150px;
-  padding: 16px 0;
+  width: 180px;
   position: fixed;
+  box-shadow: 5px 0 5px rgba(#333, 0.1);
+  background-color: white;
   top: 0;
   left: 0;
   padding-top: 70px;
   height: 100%;
   z-index: $aside-index;
-
+  transition: all 0.4s cubic-bezier(0.68, 0.18, 0.53, 0.18) 0.1s;
+  transition: height 0.5s;
   >h2 {
     margin-bottom: 4px;
     padding: 0 16px;
+    margin-top: 16px;
   }
-
-  >ol {
-    >li {
-      >a {
+   > ol {
+     line-height: 40px;
+    > li {
+      > a {
+        position: relative;
+        height: 40px;
+        color: $text;
         display: block;
-        padding: 4px 16px;
+        padding: 2px 20px;
         text-decoration: none;
+        &:hover {
+          background: $lightbgc;
+          border-bottom: none;
+          color:#1890ff
+        }
       }
-
       .router-link-active {
-        background: white;
+        background: $lightbgc;
+        color: #1890ff;
+        border-right: 3px solid $deepbgc;
+        @media (min-width: 500px) {
+          border-right: none;
+        }
       }
     }
   }
