@@ -1,11 +1,18 @@
 <template>
-  <button class="guan-button" :class="classes" :disabled="disabled">
-    <span v-if="loading" class="guan-loadingIndicator"></span>
+  <button class="Wen-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="Wen-loadingIndicator"></span>
     <slot />
   </button>
 </template>
-<script lang="ts">
+<script lang="ts" setup="props">
 import { computed } from "vue";
+declare const props: {
+  theme?: 'button' | 'text' | 'link';
+  size?: 'normal' | 'big' | 'small';
+  level?: 'normal' | 'main' | 'danger';
+  disabled: boolean;
+  loading: boolean;
+}
 export default {
   props: {
     theme: {
@@ -29,18 +36,15 @@ export default {
       default: false
     }
   },
-  setup(props) {
-    const { theme, size, level } = props;
-    const classes = computed(() => {
-      return {
-        [`guan-theme-${theme}`]: theme,
-        [`guan-size-${size}`]: size,
-        [`guan-level-${level}`]: level,
-      };
-    });
-    return { classes };
-  },
 };
+const { theme, size, level } = props;
+export const classes = computed(() => {
+  return {
+    [`Wen-theme-${theme}`]: theme,
+    [`Wen-size-${size}`]: size,
+    [`Wen-level-${level}`]: level,
+  };
+});
 </script>
 <style lang="scss">
 $h: 32px;
@@ -50,7 +54,7 @@ $blue: #40a9ff;
 $radius: 4px;
 $red: red;
 $grey: grey;
-.guan-button {
+.Wen-button {
   box-sizing: border-box;
   height: $h;
   padding: 0 12px;
@@ -79,7 +83,7 @@ $grey: grey;
   &::-moz-focus-inner {
     border: 0;
   }
-  &.guan-theme-link {
+  &.Wen-theme-link {
     border-color: transparent;
     box-shadow: none;
     color: $blue;
@@ -88,7 +92,7 @@ $grey: grey;
       color: lighten($blue, 10%);
     }
   }
-  &.guan-theme-text {
+  &.Wen-theme-text {
     border-color: transparent;
     box-shadow: none;
     color: inherit;
@@ -97,18 +101,18 @@ $grey: grey;
       background: darken(white, 5%);
     }
   }
-  &.guan-size-big {
+  &.Wen-size-big {
     font-size: 24px;
     height: 48px;
     padding: 0 16px;
   }
-  &.guan-size-small {
+  &.Wen-size-small {
     font-size: 12px;
     height: 20px;
     padding: 0 4px;
   }
-  &.guan-theme-button {
-    &.guan-level-main {
+  &.Wen-theme-button {
+    &.Wen-level-main {
       background: $blue;
       color: white;
       border-color: $blue;
@@ -118,7 +122,7 @@ $grey: grey;
         border-color: darken($blue, 10%);
       }
     }
-    &.guan-level-danger {
+    &.Wen-level-danger {
       background: $red;
       border-color: $red;
       color: white;
@@ -129,8 +133,8 @@ $grey: grey;
       }
     }
   }
-  &.guan-theme-link {
-    &.guan-level-danger {
+  &.Wen-theme-link {
+    &.Wen-level-danger {
       color: $red;
       &:hover,
       &:focus {
@@ -138,15 +142,15 @@ $grey: grey;
       }
     }
   }
-  &.guan-theme-text {
-    &.guan-level-main {
+  &.Wen-theme-text {
+    &.Wen-level-main {
       color: $blue;
       &:hover,
       &:focus {
         color: darken($blue, 10%);
       }
     }
-    &.guan-level-danger {
+    &.Wen-level-danger {
       color: $red;
       &:hover,
       &:focus {
@@ -154,7 +158,7 @@ $grey: grey;
       }
     }
   }
-  &.guan-theme-button {
+  &.Wen-theme-button {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
@@ -163,13 +167,13 @@ $grey: grey;
       }
     }
   }
-  &.guan-theme-link, &.guan-theme-text {
+  &.Wen-theme-link, &.Wen-theme-text {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
     }
   }
-  > .guan-loadingIndicator{
+  > .Wen-loadingIndicator{
     width: 14px;
     height: 14px;
     display: inline-block;
@@ -178,10 +182,10 @@ $grey: grey;
     border-color: $blue $blue $blue transparent;
     border-style: solid;
     border-width: 2px;
-    animation: guan-spin 1s infinite linear;
+    animation: Wen-spin 1s infinite linear;
   }
 }
-@keyframes guan-spin {
+@keyframes Wen-spin {
   0%{transform: rotate(0deg)} 
   100%{transform: rotate(360deg)} 
 }
