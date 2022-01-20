@@ -12,13 +12,13 @@ export default {
     globals: {
       vue: 'Vue'
     },
-    name: 'Wen',
-    file: 'dist/lib/Wen.js',
+    name: 'Gulu',
+    file: 'dist/lib/gulu.js',
     format: 'umd',
     plugins: [terser()]
   }, {
-    name: 'Wen',
-    file: 'dist/lib/Wen.esm.js',
+    name: 'Gulu',
+    file: 'dist/lib/gulu.esm.js',
     format: 'es',
     plugins: [terser()]
   }],

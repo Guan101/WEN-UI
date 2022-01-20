@@ -883,7 +883,7 @@
   dependencies:
     "pump" "^3.0.0"
 
-"github-markdown-css@^4.0.0":
+"github-markdown-css@4.0.0":
   "integrity" "sha1-vp9Mr3o4kijUw2gzYmD/yQkGHzU="
   "resolved" "https://registry.npmmirror.com/github-markdown-css/download/github-markdown-css-4.0.0.tgz"
   "version" "4.0.0"

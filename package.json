@@ -1,11 +1,11 @@
 {
-  "name": "Wen-ui-1",
+  "name": "gulu-ui-1",
   "version": "0.0.4",
   "files": [
     "dist/lib/*"
   ],
-  "main": "dist/lib/Wen.js",
-  "module": "dist/lib/Wen.esm.js",
+  "main": "dist/lib/gulu.js",
+  "module": "dist/lib/gulu.esm.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
@@ -14,7 +14,7 @@
     "node-sass": "npm:sass@1.26.11"
   },
   "dependencies": {
-    "github-markdown-css": "^4.0.0",
+    "github-markdown-css": "4.0.0",
     "marked": "1.1.1",
     "prismjs": "1.21.0",
     "vue": "3.0.0",

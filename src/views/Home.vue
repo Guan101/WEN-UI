@@ -41,7 +41,7 @@
 
 <script lang="ts">
 import Topnav from "../components/Topnav.vue";
-import { ref,watchEffect } from "vue";
+import { ref } from "vue";
 export default {
   components: {
     Topnav

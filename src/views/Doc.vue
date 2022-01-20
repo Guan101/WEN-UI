@@ -1,6 +1,6 @@
 <template>
 <div class="layout">
-  <Topnav v-model:toggleMenuButtonVisible class="nav" />
+  <Topnav class="nav" />
   <div class="content">
     <aside :class="menuVisible ? 'asideOpen': 'asideClosed'">
       <h2>文档</h2>
